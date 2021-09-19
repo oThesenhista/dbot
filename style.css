@@ -15,6 +15,17 @@ input[type=number] {
 body {
   font-family: 'Nunito', sans-serif;
   background-color: #234f76;
+  margin: 0px;
+  padding: 0px;
+  height: 100vh;
+}
+
+.centralize {
+  position: absolute;
+  width:310px;
+  left:50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 
 input {
@@ -45,7 +56,6 @@ button {
   width: 310px;
   height: 70px;
   border: none;
-  margin: auto;
   margin-top: 0px;
   display: block;
   font-family: 'Nunito', sans-serif;
@@ -63,8 +73,6 @@ button:focus, button:hover {
 }
 
 .box {
-  margin:auto;
-  margin-top: 250px;
   border-radius:15px 15px 0px 0px;
   width:270px;
   text-transform: uppercase;
