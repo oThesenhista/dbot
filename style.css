@@ -83,3 +83,15 @@ button:focus, button:hover {
   -webkit-box-shadow: 0px 0px 25px -7px rgba(0,0,0,0.5);
   box-shadow: 0px 0px 25px -7px rgba(0,0,0,0.5);
 }
+
+.notification {
+  background-color: #E8EEF1;
+  text-transform: uppercase;
+  padding:20px;
+  text-align: center;
+  color: #057DCD;
+  margin-bottom: 30px;
+  border-radius: 15px;
+  -webkit-box-shadow: 0px 0px 25px -7px rgba(0,0,0,0.5);
+  box-shadow: 0px 0px 25px -7px rgba(0,0,0,0.5);
+}
