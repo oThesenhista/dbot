@@ -1,63 +1,28 @@
 <html>
   <head>
-    <title>DOGE BOT</title>
+    <title>CRYPTO BOT</title>
+
     <meta charset="UTF-8">
-    <script src="./jquery-3.6.0.min.js"></script>
-    <link rel="stylesheet" href="./style.css">
-    <link rel="icon" href="doge.png" type="image/png">
     <meta name="theme-color" content="#1E3D58" />
     <meta name="viewport" content="width=device-width, initial-scale=0.8"/>
     <meta name="mobile-web-app-capable" content="yes">
+    
+    <link rel="stylesheet" href="./style.css">
+    <link rel="icon" href="cryptocurrency.png" type="image/png">
+
+    <script src="./jquery-3.6.0.min.js"></script>
+    <script src="./script.js"></script>
   </head>
   <body>
     <div class="centralize">
-      <div class="notification">
+      <div class="notification"></div>
+      <div class="box">
+        ↱ exchange <input id="exchange" type="text" value="binance"><br>
+        <hr style="border: none; background-color: #224563; margin-left:-20px; margin-right:-20px; height:2px;">
+        ▲ above <input id="minprice" type="number" value="0.3000" placeholder="min"><br>
+        ▼ below <input id="maxprice" type="number" value="0.2300" placeholder="max"><br>
       </div>
-    <div class="box">
-    exchange <input id="exchange" type="text" value="binance"><br>
-    <hr style="border: none; background-color: #224563; margin-left:-20px; margin-right:-20px; height:2px;">
-    acima de <input id="minprice" type="number" value="0.3000" placeholder="min"><br>
-    abaixo de <input id="maxprice" type="number" value="0.2300" placeholder="max"><br>
-  </div>
-  <button onclick="sendMessage()">Force Send</button>
-</div>
-    <script>
-      const discordurl = "https://discord.com/api/webhooks/888939788772708382/YBuLYgyT4hCEgK53M5h1xWVHGt6JIIcyxSBNX5sNszipdvo1j4kxfilRP3fgXcDEtnAO";
-      let exchange = "binance";
-
-      $("#exchange").change(function() {
-        exchange = $(this).val();
-      });
-
-      setInterval(() => {
-        sendMessage(false);
-      }, 1000 * 10);
-
-      function sendMessage(forcesend=true) {
-        $.ajax({
-          "url": "https://sochain.com//api/v2/get_price/DOGE/USD",
-          "method": "GET",
-          "success": function(res){
-            let info = res.data.prices.filter(d => d.exchange == exchange)[0];
-
-            $(".notification").html(`<span style="color: #1E3D58">Actual price is</span> ${info.price_base} ${info.price}`);
-            let minprice = parseFloat($("#minprice").val());
-            let maxprice = parseFloat($("#maxprice").val());
-            if(forcesend || (info.price >= minprice || info.price <= maxprice)) {
-              let request = new XMLHttpRequest();
-              request.open("POST", discordurl);
-              request.setRequestHeader('Content-type', 'application/json');
-              let params = {
-                username: "doge_bot",
-                avatar_url: "",
-                content: `@here Actual price by '${exchange}' is ${info.price_base} ${info.price} ${forcesend?' - force':''}`
-              }
-              request.send(JSON.stringify(params));
-            }
-          }
-        });
-      }
-      sendMessage(false);
-    </script>
+      <button onclick="checkRoutine(true)">force send</button>
+    </div>
   </body>
 </html>
