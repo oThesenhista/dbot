@@ -67,7 +67,7 @@ function checkRoutine(forceSend=false) {
   let maxprice = parseFloat($("#maxprice").val());
   if(forceSend || (info.price >= minprice || info.price <= maxprice)) {
     let title = `Price on ${exchange.toUpperCase()} for ${cripto.toUpperCase()} reach ${info.price_base??''} ${info.price??''}`;
-    let message = forceSend? 'FORCE SENDED MESSAGE' : `TIME TO ${info.price >= minprice?'BUY':'SOLD'} SOME ${cripto.toUpperCase()} ON ${exchange.toUpperCase()}!`;
+    let message = forceSend? 'FORCE SENDED MESSAGE' : `TIME TO ${info.price >= minprice?'SOLD':'BUY'} SOME ${cripto.toUpperCase()} ON ${exchange.toUpperCase()}!`;
     sendMessage(title, message);
   }
 }
