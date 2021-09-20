@@ -1,5 +1,13 @@
 const checkdelay = 10; // in seconds
-const discordurl = "https://discord.com/api/webhooks/888939788772708382/YBuLYgyT4hCEgK53M5h1xWVHGt6JIIcyxSBNX5sNszipdvo1j4kxfilRP3fgXcDEtnAO";
+const discordbot = {
+  "url": "https://discord.com/api/webhooks/888939788772708382/YBuLYgyT4hCEgK53M5h1xWVHGt6JIIcyxSBNX5sNszipdvo1j4kxfilRP3fgXcDEtnAO",
+  "name": "crypto_bot"
+};
+// debug
+// const discordbot = {
+//   "url": "https://discord.com/api/webhooks/889300799593791510/B3fJ8cN674_RKpTbXC2U0SU6rQorlhs-lrRTwskpVtCukYzHlDbaQpT-9Vh6KBym-pfD",
+//   "name": "debug_bot"
+// };
 
 let exchange  = "binance";
 let cripto    = "dogecoin";
@@ -41,7 +49,7 @@ function getAPIInfo(cripto="dogecoin") {
 
 function sendMessage(title, msg) {
   let params = {
-    "username"  : "cryto_bot",
+    "username"  : discordbot.name,
     "avatar_url": "https://i.imgur.com/qxbCmbg.png",
     "content"   : `@here`,
     "embeds"    : [
@@ -53,7 +61,7 @@ function sendMessage(title, msg) {
     ]
   }
   let request = new XMLHttpRequest();
-  request.open("POST", discordurl);
+  request.open("POST", discordbot.url);
   request.setRequestHeader('Content-type', 'application/json');
   request.send(JSON.stringify(params));
 }
