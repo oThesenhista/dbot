@@ -15,14 +15,26 @@
   </head>
   <body>
     <div class="centralize">
-      <div class="notification"></div>
-      <div class="box">
-        ↱ exchange <input id="exchange" type="text" value="binance"><br>
-        <hr style="border: none; background-color: #224563; margin-left:-20px; margin-right:-20px; height:2px;">
-        ▲ above <input id="minprice" type="number" value="0.3000" placeholder="min"><br>
-        ▼ below <input id="maxprice" type="number" value="0.2300" placeholder="max"><br>
+      <div class="drop-shadow notification"></div>
+      <div>
+        <div class="drop-shadow box">
+          ↱ exchange <input id="exchange" type="text" value="binance">
+          <hr class="box-line">
+          
+          <div style="display:flex;margin:0 -8px;">
+            <div class="box-half">
+              ▲ above <input id="minprice" type="number" value="0.3000" placeholder="min">
+            </div>
+            <div class="box-half">
+              ▼ below <input id="maxprice" type="number" value="0.2200" placeholder="max">
+            </div>
+          </div>
+        </div>
+        <div class="drop-shadow" style="display:flex;border-radius:15px">
+          <button class="load-btn active" style="width:80px;" onclick="toggleSend()"></button>
+          <button class="send-btn" onclick="checkRoutine(true)">force send</button>
+        </div>
       </div>
-      <button onclick="checkRoutine(true)">force send</button>
     </div>
   </body>
 </html>
